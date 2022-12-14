@@ -1,4 +1,4 @@
-const  config = {
+const config = {
     appConfig: {
         port: process.env.APP_PORT
     },
@@ -7,6 +7,6 @@ const  config = {
         dbName: process.env.DB_NAME,
         host: process.env.DB_HOST
     }
-}
+};
 
 module.exports = config
