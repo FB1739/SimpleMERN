@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = `http://localhost:8081/v1`
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 export async function getProducts() {
     try {
