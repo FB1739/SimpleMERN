@@ -13,9 +13,18 @@ const ListProducts = () => {
             if (response.status === 200 ) {
                 setProducts(response.data.products)
             }
+            setIsLoading(false)
         }
         loadProduct()
     }, [])
+
+    if (isLoading) {
+        return <Loading />
+    }
+
+    if (!products.length) {
+        return <h2 className='title has-text-centered'>You don't have products</h2>
+    }
 
     return ( 
         isLoading
