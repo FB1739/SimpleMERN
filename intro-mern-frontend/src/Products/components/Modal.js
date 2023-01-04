@@ -7,7 +7,8 @@ export default class ModalExample extends React.Component {
     return (
       <div>
          <button onClick={() => this.setState({ open: true })}>Open</button>
-               </div>
+         <Modal show={this.state.open} onClose={() => this.setState({ open: false })}>MODAL CONTENT</Modal>
+      </div>
     )
   }
 }
