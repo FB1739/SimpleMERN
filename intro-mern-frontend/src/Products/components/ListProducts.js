@@ -1,35 +1,18 @@
-import React,  { useState, useEffect } from 'react'
-import { getProducts } from '../services'
-import Loading from './Loading'
+import React from 'react'
 
-const ListProducts = () => {
 
-    const [isLoading, setIsLoading] = useState(true)
-    const [products, setProducts] = useState([])
+const ListProducts = ({ products }) => {
 
-    useEffect(() => {
-        async function loadProduct() {
-            const response = await getProducts()
-            if (response.status === 200 ) {
-                setProducts(response.data.products)
-            }
-            setIsLoading(false)
-        }
-        loadProduct()
-    }, [])
-
-    if (isLoading) {
+    /*if (isLoading) {
         return <Loading />
     }
 
     if (!products.length) {
         return <h2 className='title has-text-centered'>You don't have products</h2>
-    }
+    }*/
 
     return ( 
-        isLoading
-        ? <Loading />
-        : "Monstrar Listado."
+        "Monstrar Listado."
     )
 }
 

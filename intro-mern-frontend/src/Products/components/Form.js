@@ -12,7 +12,7 @@ const { Input, Field, Control, Label } = BulmaForm
             </div>
         </div>
 */
-const Form = () => {
+const Form = ({handleSubmit}) => {
     const [formValues, setFormValues] = useState({
         name: '',
         priceUnitary: '',
@@ -20,7 +20,9 @@ const Form = () => {
         description: ''
     })
 
-    const inputFileRef = useRef(null)
+    const inputFileRef = useRef()
+
+    const iFRef = inputFileRef.current && inputFileRef.current.children[0];
 
     // e de evento
     const handleChange = (e) => {
@@ -29,14 +31,15 @@ const Form = () => {
         setFormValues({ ...formValues, [name]: value})
     }
 
-    const handleSubmit = (e) => {
+    const _handleSubmit = (e) => {
         e.preventDefault()
+        handleSubmit({...formValues, image: iFRef.files[0]})
         console.log(formValues)
-        console.log(inputFileRef.current.files())
+        console.log(iFRef.files[0])
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={_handleSubmit}>
             <Field>
                 <Label>Nombre</Label>
                 <Control>
@@ -64,7 +67,9 @@ const Form = () => {
             <Field>
                 <Label>Imagen</Label>
                 <Control>
-                    <Input type="file" ref={useRef(0)}/>
+                    <div ref={inputFileRef}>
+                    <Input type="file" />
+                    </div>
                 </Control>
             </Field>
             <Button color="primary" type="submit">
