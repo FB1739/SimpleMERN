@@ -80,4 +80,4 @@ const Form = ({handleSubmit}) => {
 }
 
 
-export default React.forwardRef(Form)
+export default Form
