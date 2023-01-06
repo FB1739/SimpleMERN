@@ -15,7 +15,7 @@ const { Input, Field, Control, Label } = BulmaForm
 const Form = ({handleSubmit}) => {
     const [formValues, setFormValues] = useState({
         name: '',
-        priceUnitary: '',
+        unitaryPrice: '',
         size: '',
         description: ''
     })
@@ -49,7 +49,7 @@ const Form = ({handleSubmit}) => {
             <Field>
                 <Label>Precio unitario</Label>
                 <Control>
-                    <Input placeholder="Text input" name="priceUnitary" value={formValues.priceUnitary} onChange={handleChange} type="number"/>
+                    <Input placeholder="Text input" name="unitaryPrice" value={formValues.unitaryPrice} onChange={handleChange} type="number"/>
                 </Control>
             </Field>
             <Field>

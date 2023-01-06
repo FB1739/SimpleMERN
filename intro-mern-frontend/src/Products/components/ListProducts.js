@@ -21,13 +21,15 @@ const ListProducts = ({ products }) => {
             {
                 products.map(({description, name, size, _id, unitaryPrice, imgUrl}) => (
 
-                    <Columns.Column size={4} key={_id}>
+                    <Columns.Column size={3} key={_id}>
                         <Card >
                             <Card.Image size="square" src={"//"+imgUrl} alt="Imagen"></Card.Image>
                             <Card.Content>
                                 <Content>
                                     <Heading>{name}</Heading>
-                                    <Heading subtitle size={6}>{unitaryPrice}</Heading>
+                                    <Heading subtitle size={6}>Price: {unitaryPrice}</Heading>
+                                    <Heading subtitle size={6}>Size: {size}</Heading>
+                                    <p>{description}</p>
                                 </Content>
                             </Card.Content>
                         </Card>

@@ -21,7 +21,7 @@ export async function saveProducts(productData) {
         const formData = new FormData()
 
         formData.append('name', productData.name)
-        formData.append('priceUnitary', productData.priceUnitary)
+        formData.append('unitaryPrice', productData.unitaryPrice)
         formData.append('size', productData.size)
         formData.append('description', productData.description)
         formData.append('image', productData.image)
